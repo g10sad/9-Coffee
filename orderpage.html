@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9% Coffee Order Page</title>
+<link rel="stylesheet" href="orderstyle.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>☕ 9% Coffee</h2>
+
+        <ul>
+            <li><a href="Homepage.html">🏠 Home</a></li>
+            <li><a href="menu.html">📖 Menu</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="orderpage.html">🛒 Order</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <div class="order-box">
+
+            <h1>🛒 Place Your Order</h1>
+
+            <form>
+
+                <label>Customer Name</label>
+                <input type="text" placeholder="Enter your name">
+
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter phone number">
+
+                <!-- Delivery Section -->
+
+                <h2 class="delivery-title">🚚 Delivery Information</h2>
+
+                <label>Order Type</label>
+
+                <select>
+                    <option>Dine In</option>
+                    <option>Take Away</option>
+                    <option>Delivery</option>
+                </select>
+
+                <label>Delivery Address</label>
+
+                <textarea rows="3"
+                placeholder="Enter your full address"></textarea>
+
+                <label>Delivery Area</label>
+
+                <select>
+                    <option>Parit Raja</option>
+                    <option>Batu Pahat</option>
+                    <option>Ayer Hitam</option>
+                    <option>Yong Peng</option>
+                </select>
+
+                <label>Delivery Date</label>
+                <input type="date">
+
+                <label>Delivery Time</label>
+
+                <select>
+                    <option>10:00 AM</option>
+                    <option>11:00 AM</option>
+                    <option>12:00 PM</option>
+                    <option>1:00 PM</option>
+                    <option>2:00 PM</option>
+                    <option>3:00 PM</option>
+                    <option>4:00 PM</option>
+                    <option>5:00 PM</option>
+                </select>
+
+                <label>Delivery Fee</label>
+
+                <input type="text"
+                value="RM 5.00"
+                readonly>
+
+                <label>Additional Notes</label>
+                <textarea rows="4" placeholder="Special request..."></textarea>
+
+                <!-- Buttons -->
+
+                <div class="button-group">
+
+                    <button type="button" class="order-btn" onclick="confirmOrder()">
+                    Confirm Order
+                    </button>
+
+                    <a href="#"
+                    class="checkout-btn"
+                    onclick="goCheckout()">
+                    Proceed to Checkout 💳
+                    </a>
+
+                </div>
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+<<script>
+
+function confirmOrder(){
+
+    alert("Order Information Saved!");
+
+}
+
+function goCheckout(){
+
+    window.location.href="checkout.html";
+
+}
+
+</script>
+
+</script>
+</body>
+</html>

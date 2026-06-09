@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | 9% Coffee</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2>☕ 9% Coffee</h2>
+
+        <ul>
+            <li><a href="Homepage.html">🏠 Home</a></li>
+            <li><a href="menu.html">📖 Menu</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="orderpage.html">🛒 Order</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- BANNER -->
+
+        <section class="banner">
+            <h1>Admin Dashboard</h1>
+            <p>Manage orders, sales and inventory.</p>
+        </section>
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card">
+    <h2 id="ordersToday">87</h2>
+    <p>Orders Today</p>
+</div>
+
+            <div class="dashboard-card">
+    <h2 id="salesToday">RM1250</h2>
+    <p>Today's Sales</p>
+</div>
+
+            <div class="dashboard-card">
+                <h2>1</h2>
+                <p>Low Stock Alert</p>
+            </div>
+
+        </div>
+
+<h2 class="section-title">
+    Update Dashboard
+</h2>
+
+<input type="number"
+id="newOrders"
+placeholder="Orders Today">
+
+<input type="number"
+id="newSales"
+placeholder="Today's Sales">
+
+<button onclick="updateDashboard()">
+    Update Dashboard
+</button>
+
+        <!-- SALES ALERT -->
+
+        <div class="alert success-alert">
+            📈 Sales increased by 15% compared to yesterday.
+        </div>
+
+        <!-- INVENTORY -->
+
+<h2 class="section-title">
+    Inventory Management
+</h2>
+
+<form id="inventoryForm">
+
+    <input type="text" id="ingredient" placeholder="Ingredient Name" required>
+
+    <input type="text" id="stock" placeholder="Stock Amount" required>
+
+    <button type="button" onclick="addInventory()">
+        Add Item
+    </button>
+
+</form>
+
+<br>
+
+<table id="inventoryTable">
+
+    <tr>
+        <th>Ingredient</th>
+        <th>Stock</th>
+        <th>Action</th>
+    </tr>
+
+</table>
+
+        <!-- RECENT ORDERS -->
+
+        <h2 class="section-title">
+            Recent Orders
+        </h2>
+
+        <table>
+
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Item</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>#1001</td>
+                <td>Ali</td>
+                <td>Latte</td>
+                <td class="status-good">Completed</td>
+            </tr>
+
+            <tr>
+                <td>#1002</td>
+                <td>Sarah</td>
+                <td>Cappuccino</td>
+                <td>Preparing</td>
+            </tr>
+
+            <tr>
+                <td>#1003</td>
+                <td>Adam</td>
+                <td>Matcha Latte</td>
+                <td class="status-good">Ready</td>
+            </tr>
+
+        </table>
+
+    </main>
+
+</div>
+
+<script>
+
+let inventory = JSON.parse(localStorage.getItem("inventory")) || [
+
+    {ingredient:"Milk", stock:"5 Litres"},
+    {ingredient:"Coffee Beans", stock:"3kg"},
+    {ingredient:"Chocolate Powder", stock:"1kg"}
+
+];
+
+displayInventory();
+
+function addInventory(){
+
+    let ingredient =
+    document.getElementById("ingredient").value;
+
+    let stock =
+    document.getElementById("stock").value;
+
+    if(ingredient=="" || stock==""){
+        alert("Please fill all fields");
+        return;
+    }
+
+    inventory.push({
+        ingredient:ingredient,
+        stock:stock
+    });
+
+    saveInventory();
+
+    document.getElementById("ingredient").value="";
+    document.getElementById("stock").value="";
+}
+
+function deleteItem(index){
+
+    inventory.splice(index,1);
+
+    saveInventory();
+}
+
+function displayInventory(){
+
+    let table =
+    document.getElementById("inventoryTable");
+
+    table.innerHTML = `
+
+    <tr>
+        <th>Ingredient</th>
+        <th>Stock</th>
+        <th>Action</th>
+    </tr>
+
+    `;
+
+    inventory.forEach((item,index)=>{
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>${item.ingredient}</td>
+
+            <td>${item.stock}</td>
+
+            <td>
+
+                <button onclick="deleteItem(${index})">
+                    Delete
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+function saveInventory(){
+
+    localStorage.setItem(
+        "inventory",
+        JSON.stringify(inventory)
+    );
+
+    displayInventory();
+}
+
+function updateDashboard(){
+
+    let orders =
+    document.getElementById("newOrders").value;
+
+    let sales =
+    document.getElementById("newSales").value;
+
+    document.getElementById("ordersToday")
+    .innerHTML = orders;
+
+    document.getElementById("salesToday")
+    .innerHTML = "RM" + sales;
+
+    localStorage.setItem("ordersToday",orders);
+    localStorage.setItem("salesToday",sales);
+}
+
+window.onload = function(){
+
+    let orders =
+    localStorage.getItem("ordersToday");
+
+    let sales =
+    localStorage.getItem("salesToday");
+
+    if(orders){
+        document.getElementById("ordersToday")
+        .innerHTML = orders;
+    }
+
+    if(sales){
+        document.getElementById("salesToday")
+        .innerHTML = "RM" + sales;
+    }
+
+}
+</script>
+
+</body>
+</html>

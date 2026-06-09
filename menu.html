@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9% Coffee Menu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <h2>☕ 9% Coffee</h2>
+
+        <ul>
+            <li><a href="Homepage.html">🏠 Home</a></li>
+            <li><a href="menu.html">📖 Menu</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="orderpage.html">🛒 Order</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+
+        </ul>
+
+        <div class="cart-box">
+        🛒 Cart :
+        <span id="cart-count">0</span> Items
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <section class="banner">
+
+            <h1>☕ Our Menu</h1>
+
+            <p>
+                Enjoy premium coffee, refreshing beverages and delicious desserts.
+            </p>
+
+            <a href="orderpage.html" class="btn">
+                Order Now
+            </a>
+
+        </section>
+
+        <!-- Coffee -->
+
+        <h2 class="section-title">☕ Coffee</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="image/latte.jpg" alt="Latte" class="menu-img">
+                <h3>Latte</h3>
+                <p>Rich espresso with steamed milk.</p>
+                <strong>RM 8.00</strong>
+                <button onclick="addToCart('Latte',8)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/cappucino.jpg" alt="Cappuccino" class="menu-img">
+                <h3>Cappuccino</h3>
+                <p>Espresso with creamy milk foam.</p>
+                <strong>RM 9.00</strong>
+                <button onclick="addToCart('Cappuccino',9)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/americano.jpg" alt="Americano" class="menu-img">
+                <h3>Americano</h3>
+                <p>Smooth black coffee.</p>
+                <strong>RM 7.00</strong>
+                <button onclick="addToCart('Americano',7)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/mocha.jpg" alt="Mocha" class="menu-img">
+                <h3>Mocha</h3>
+                <p>Chocolate mixed with espresso.</p>
+                <strong>RM 11.00</strong>
+                <button onclick="addToCart('Mocha',11)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Non Coffee -->
+
+        <h2 class="section-title">🍵 Non-Coffee</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="image/matcha.jpg" alt="Matcha Latte" class="menu-img">
+                <h3>Matcha Latte</h3>
+                <p>Premium Japanese matcha.</p>
+                <strong>RM 10.00</strong>
+                <button onclick="addToCart('Matcha Latte',10)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/chocolate.jpg" alt="Chocolate Drink" class="menu-img">
+                <h3>Chocolate Drink</h3>
+                <p>Rich chocolate beverage.</p>
+                <strong>RM 9.00</strong>
+                <button onclick="addToCart('Chocolate Drink',9)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/strawberry.jpg" alt="Strawberry Smoothie" class="menu-img">
+                <h3>Strawberry Smoothie</h3>
+                <p>Fresh strawberry blend.</p>
+                <strong>RM 12.00</strong>
+                <button onclick="addToCart('Strawberry Smoothie',12)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/lemontea.jpg" alt="Lemon Tea" class="menu-img">
+                <h3>Lemon Tea</h3>
+                <p>Refreshing lemon tea.</p>
+                <strong>RM 8.00</strong>
+                <button onclick="addToCart('Lemon Tea',8)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Desserts -->
+
+        <h2 class="section-title">🍰 Desserts</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="image/cheesecake.jpg" alt="Cheesecake" class="menu-img">
+                <h3>Cheesecake</h3>
+                <p>Soft creamy cheesecake.</p>
+                <strong>RM 12.00</strong>
+                <button onclick="addToCart('Cheesecake',12)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/brownies.jpg" alt="Brownie" class="menu-img">
+                <h3>Chocolate Brownie</h3>
+                <p>Warm chocolate brownie.</p>
+                <strong>RM 6.00</strong>
+                <button onclick="addToCart('Chocolate Brownie',6)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/crossant.jpg" alt="Croissant" class="menu-img">
+                <h3>Croissant</h3>
+                <p>Fresh buttery croissant.</p>
+                <strong>RM 7.00</strong>
+                <button onclick="addToCart('Croissant',7)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="image/cookies.jpg" alt="Cookies" class="menu-img">
+                <h3>Cookies</h3>
+                <p>Fresh baked cookies.</p>
+                <strong>RM 5.00</strong>
+                <button onclick="addToCart('Cookies',5)">
+                🛒 Add to Cart
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+<script>
+
+function addToCart(item,price){
+
+    alert(item + " added");
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    let found = false;
+
+    for(let i=0;i<cart.length;i++){
+
+        if(cart[i].item===item){
+            cart[i].qty++;
+            found=true;
+            break;
+        }
+
+    }
+
+    if(!found){
+
+        cart.push({
+            item:item,
+            price:price,
+            qty:1
+        });
+
+    }
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    window.location.href="cart.html";
+
+}
+
+</script>
+<script>
+console.log(localStorage.getItem("cart"));
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Cart</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+
+<h2>☕ 9% Coffee</h2>
+
+<ul>
+
+<li><a href="Homepage.html">🏠 Home</a></li>
+            <li><a href="menu.html">📖 Menu</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="orderpage.html">🛒 Order</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+
+</ul>
+
+</aside>
+
+<main class="main-content">
+
+<section class="banner">
+
+<h1>Shopping Cart</h1>
+
+<p>Review your selected items.</p>
+
+</section>
+
+<h2 class="section-title">
+Cart Items
+</h2>
+
+<table id="cartTable">
+
+<tr>
+
+<th>Item</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+<th>Action</th>
+
+</tr>
+
+</table>
+
+<br>
+
+<h2 id="grandTotal">
+Total: RM0
+</h2>
+
+<br>
+
+<a href="orderpage.html"
+class="btn">
+Proceed To Order
+</a>
+
+</main>
+
+</div>
+<script>
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+let table =
+document.getElementById("cartTable");
+
+let grandTotal = 0;
+
+if(cart.length === 0){
+
+    table.innerHTML += `
+    <tr>
+        <td colspan="5">
+            Cart is Empty
+        </td>
+    </tr>
+    `;
+
+}
+
+cart.forEach(function(product,index){
+
+    let row = table.insertRow();
+
+    row.insertCell(0).innerHTML =
+    product.item;
+
+    row.insertCell(1).innerHTML =
+    product.qty;
+
+    row.insertCell(2).innerHTML =
+    "RM " + product.price.toFixed(2);
+
+    let total =
+    product.qty * product.price;
+
+    row.insertCell(3).innerHTML =
+    "RM " + total.toFixed(2);
+
+    row.insertCell(4).innerHTML =
+    `<button onclick="deleteItem(${index})">
+        Delete
+    </button>`;
+
+    grandTotal += total;
+
+});
+
+document.getElementById("grandTotal").innerHTML =
+"Total: RM" + grandTotal.toFixed(2);
+
+</script>
+
+
+<script>
+
+console.log(
+JSON.parse(localStorage.getItem("cart"))
+);
+
+</script>
+
+<script>
+
+function deleteItem(index){
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index,1);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    location.reload();
+
+}
+
+</script>
+</body>
+</html>

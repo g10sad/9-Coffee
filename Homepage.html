@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9% Coffee Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>☕ 9% Coffee</h2>
+
+        <ul>
+            <li><a href="Homepage.html">🏠 Home</a></li>
+            <li><a href="menu.html">📖 Menu</a></li>
+            <li><a href="orderpage.html">🛒 Order</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html" class="active">📞 Contact</a></li>
+            <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+            <li><a href="login.html">🚪 Logout</a></li>
+        </ul>
+
+        <div class="cart-box">
+            🛒 Cart Items
+            <br>
+            <span id="cart-count">0</span>
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <section class="banner">
+
+            <h1>Fresh Coffee Everyday ☕</h1>
+
+            <p>
+                Premium coffee, delicious desserts and a comfortable
+                environment for students and coffee lovers.
+            </p>
+
+            <a href="menu.html" class="btn">
+                Order Now
+            </a>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <h2 class="section-title">
+            Business Overview
+        </h2>
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-card">
+                <h2>87</h2>
+                <p>Orders Today</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>RM1,250</h2>
+                <p>Today's Sales</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>15</h2>
+                <p>Menu Items</p>
+            </div>
+
+        </div>
+
+        <!-- Featured Menu -->
+
+        <h2 class="section-title">
+            Featured Menu
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <img src="image/latte.jpg" alt="Latte">
+
+                <h3>Latte</h3>
+
+                <p>
+                    Rich espresso blended with steamed milk.
+                </p>
+
+                <strong>RM 8.00</strong>
+
+                <br><br>
+
+                <button onclick="addCart()">
+                    Add To Cart
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <img src="image/matcha.jpg" alt="Matcha">
+
+                <h3>Matcha Latte</h3>
+
+                <p>
+                    Smooth matcha flavour with creamy milk.
+                </p>
+
+                <strong>RM 10.00</strong>
+
+                <br><br>
+
+                <button onclick="addCart()">
+                    Add To Cart
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <img src="image/crossant.jpg" alt="Croissant">
+
+                <h3>Croissant</h3>
+
+                <p>
+                    Freshly baked butter croissant.
+                </p>
+
+                <strong>RM 7.00</strong>
+
+                <br><br>
+
+                <button onclick="addCart()">
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+let count = 0;
+
+function addCart(){
+    count++;
+    document.getElementById("cart-count").innerHTML = count;
+}
+</script>
+
+</body>
+</html>

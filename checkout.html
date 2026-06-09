@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+
+    <h2>☕ 9% Coffee</h2>
+
+    <ul>
+        <li><a href="Homepage.html">🏠 Home</a></li>
+            <li><a href="menu.html">📖 Menu</a></li>
+            <li><a href="cart.html">🛒 Cart</a></li>
+            <li><a href="orderpage.html">🛒 Order</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li><a href="admin-dashboard.html">📊 Dashboard</a></li>
+    </ul>
+
+</aside>
+
+<main class="main-content">
+
+    <section class="banner">
+        <h1>Checkout</h1>
+        <p>Review your order before placing it.</p>
+    </section>
+
+    <br>
+
+    <form>
+
+        <label>Pickup / Delivery</label>
+
+        <select>
+            <option>Pickup</option>
+            <option>Delivery</option>
+        </select>
+
+        <label>Payment Method</label>
+
+        <select>
+            <option>Cash</option>
+            <option>Online Banking</option>
+            <option>Touch n Go</option>
+        </select>
+
+        <button type="button" onclick="placeOrder()">
+    Place Order
+</button>
+
+    </form>
+
+</main>
+
+</div>
+<script>
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+if(cart.length === 0){
+
+    document.getElementById("checkoutTable").innerHTML += `
+
+    <tr>
+        <td colspan="3">
+            No items in cart
+        </td>
+    </tr>
+
+    `;
+
+}
+</script>
+<script>
+
+function placeOrder(){
+
+    alert("Order Successfully Placed!");
+
+    localStorage.removeItem("cart");
+
+    window.location.href="Homepage.html";
+
+}
+
+</script>
+</body>
+</html>
